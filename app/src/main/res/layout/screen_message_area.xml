@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="bottom"
+    android:orientation="horizontal">
+
+    <EditText
+        android:id="@+id/edt_message"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:maxHeight="80dp"
+        android:textColorHint="#CFD8DC"
+        android:textColor="#CFD8DC"
+        android:background="@color/colorPrimaryDark"
+        android:hint="@string/edt_hint_write_message"/>
+    <ImageView
+        android:id="@+id/img_send"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:padding="4dp" />
+</LinearLayout>

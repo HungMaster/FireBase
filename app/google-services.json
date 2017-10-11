@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "65638936153",
+    "firebase_url": "https://fir-4a5a0.firebaseio.com",
+    "project_id": "fir-4a5a0",
+    "storage_bucket": "fir-4a5a0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:65638936153:android:f631da8948686210",
+        "android_client_info": {
+          "package_name": "com.hungvt.firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "65638936153-31a2fg2qkpbjeosrjt86oc9ld3fnpg6m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBW4_mbI-t8qfkxzMDsjnDrWO79cqHSF9c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
