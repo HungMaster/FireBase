@@ -43,9 +43,9 @@ public class ChatActivity extends BaseActivity {
         imgSend = (ImageView) findViewById(R.id.img_send);
         scrollView = (ScrollView) findViewById(R.id.scroll_view);
 
-        reference1 = FirebaseDatabase.getInstance().getReferenceFromUrl("https://fir-4a5a0.firebaseio.com/messages/"
+        reference1 = FirebaseDatabase.getInstance().getReferenceFromUrl(Constant.URL_MESSAGES
                 + UserDetails.username + "_" + UserDetails.chatWith);
-        reference2 = FirebaseDatabase.getInstance().getReferenceFromUrl("https://fir-4a5a0.firebaseio.com/messages/"
+        reference2 = FirebaseDatabase.getInstance().getReferenceFromUrl(Constant.URL_MESSAGES
                 + UserDetails.chatWith + "_" + UserDetails.username);
     }
 

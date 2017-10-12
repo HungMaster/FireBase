@@ -68,11 +68,11 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         } else if (pass.equals("")) {
             edtPassword.setError("can't be blank");
         } else {
-            String url = "https://fir-4a5a0.firebaseio.com/users";
+
             final ProgressDialog dialog = new ProgressDialog(LoginActivity.this);
             dialog.setMessage("Loading...");
             dialog.show();
-            StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            StringRequest request = new StringRequest(Request.Method.GET, Constant.URL_USERS, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
                     if (response.equals("null")) {
