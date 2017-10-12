@@ -25,7 +25,7 @@ import org.json.JSONObject;
  */
 
 public class RegisterActivity extends BaseActivity
-        implements View.OnClickListener{
+        implements View.OnClickListener {
     private EditText edtUsername, edtPassword;
     private Button btnRegister;
     private String user, pass;
@@ -53,9 +53,9 @@ public class RegisterActivity extends BaseActivity
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.txt_login:
-                startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
+                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                 break;
 
             case R.id.btn_register:
@@ -68,43 +68,35 @@ public class RegisterActivity extends BaseActivity
         user = edtUsername.getText().toString();
         pass = edtPassword.getText().toString();
 
-        if(user.equals("")){
+        if (user.equals("")) {
             edtUsername.setError("can't be blank");
-        }
-        else if(pass.equals("")){
+        } else if (pass.equals("")) {
             edtPassword.setError("can't be blank");
-        }
-        else if(!user.matches("[A-Za-z0-9]+")){
+        } else if (!user.matches("[A-Za-z0-9]+")) {
             edtUsername.setError("only alphabet or number allowed");
-        }
-        else if(user.length()<6){
+        } else if (user.length() < 6) {
             edtUsername.setError("at least 6 characters long");
-        }
-        else if(pass.length()<8){
+        } else if (pass.length() < 8) {
             edtPassword.setError("at least 8 characters long");
-        }
-        else {
+        } else {
             final ProgressDialog progressDialog = new ProgressDialog(RegisterActivity.this);
             progressDialog.setMessage("Loading...");
             progressDialog.show();
 
-            String url = "https://fir-4a5a0.firebaseio.com/users.json";
-            StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            StringRequest request = new StringRequest(Request.Method.GET, Constant.URL_USER_JSON, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
-                    DatabaseReference reference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://fir-4a5a0.firebaseio.com/users");
-                    if (response.equals("null")){
+                    DatabaseReference reference = FirebaseDatabase.getInstance().getReferenceFromUrl(Constant.URL_USERS);
+                    if (response.equals("null")) {
                         reference.child(user).child("password").setValue(pass);
                         Toast.makeText(RegisterActivity.this, "registration successful", Toast.LENGTH_LONG).show();
-                    }
-                    else {
+                    } else {
                         try {
                             JSONObject object = new JSONObject(response);
-                            if (!object.has(user)){
+                            if (!object.has(user)) {
                                 reference.child(user).child("password").setValue(pass);
                                 Toast.makeText(RegisterActivity.this, "registration successful", Toast.LENGTH_LONG).show();
-                            }
-                            else {
+                            } else {
                                 Toast.makeText(RegisterActivity.this, "username already exists", Toast.LENGTH_LONG).show();
 
                             }
@@ -117,7 +109,7 @@ public class RegisterActivity extends BaseActivity
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    System.out.println("" + error );
+                    System.out.println("" + error);
                     progressDialog.dismiss();
                 }
             });

@@ -47,8 +47,7 @@ public class UsersActivity extends BaseActivity {
         dialog.setMessage("Loading...");
         dialog.show();
 
-        String url = "https://fir-4a5a0.firebaseio.com/users.json";
-        StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+        StringRequest request = new StringRequest(Request.Method.GET, Constant.URL_USER_JSON, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
